@@ -17,19 +17,19 @@ class App extends Component {
     }
 
   async componentDidMount() {
-    const response = await fetch('http://atombomb-classifieds-server/classifieds')
+    const response = await fetch('https://atombomb-classifieds-server.herokuapp.com/classifieds')
     const json = await response.json()
     this.setState({classifieds: json})
   }
 
   getAllClassifieds = async () => {
-    const response = await fetch('http://atombomb-classifieds-server/classifieds')
+    const response = await fetch('http://atombomb-classifieds-server.herokuapp.com/classifieds')
     const json = await response.json()
     this.setState({classifieds: json})
   }
 
   createClassified = async (newClassified) => {
-    const response = await fetch('http://atombomb-classifieds-server/classifieds', {
+    const response = await fetch('http://atombomb-classifieds-server.herokuapp.com/classifieds', {
       method: 'POST',
       body: JSON.stringify(newClassified),
       headers: {
@@ -63,7 +63,7 @@ class App extends Component {
     }else{
       bigboi.itemImage=update.itemImage
     }
-    const response = await fetch(`http://atombomb-classifieds-server/classifieds/${classified.id}`, {
+    const response = await fetch(`http://atombomb-classifieds-server.herokuapp.com/classifieds/${classified.id}`, {
       method: 'PATCH',
       body: JSON.stringify(bigboi),
       headers: {
@@ -84,7 +84,7 @@ class App extends Component {
   }
 
   delClassified = async (id) => {
-    const response = await fetch(`http://atombomb-classifieds-server/classifieds/${id}`, {
+    const response = await fetch(`http://atombomb-classifieds-server.herokuapp.com/classifieds/${id}`, {
       method: 'DELETE'
     })
     // const result = await response.json()
