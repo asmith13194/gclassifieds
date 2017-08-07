@@ -1,18 +1,25 @@
-import React from 'react'
+import React from 'react';
 import { Card, CardTitle, Col, } from 'react-materialize';
 
-const Classified = ({ classified }) => {
-  return (
-		<Col s={12} m={4} l={4}>
-      <Card header={<CardTitle reveal image={classified.item_image} waves='light'/>}
-      title={classified.title}
-      reveal={<p>{classified.description}</p>}>
-      <p><a href="#">This is a link</a></p>
-    </Card>
-    </Col>
-  )
+class Classified extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    const { classified, postToggle } = this.props;
+    return (<div>
+    { postToggle?null:
+  		<Col s={12} m={4} l={4}>
+          <Card header={<CardTitle reveal image={classified.item_image} waves='light'/>}
+          title={classified.title}
+          reveal={<p>{classified.description}</p>}>
+          <p>${classified.price}</p>
+        </Card>
+      </Col> }
+    </div>
+    )
+  }
 }
-
-
 
 export default Classified

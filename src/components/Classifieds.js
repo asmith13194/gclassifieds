@@ -16,13 +16,13 @@ class Classifieds extends Component {
   //   }
 
   render() {
-    const { classifieds } = this.props;
+    const { classifieds, postToggle } = this.props;
 
     return (
       <div className="classifieds-container" id="classifieds-container">
         <Row>
         {classifieds.map((classified,i) => (
-          <Classified key={i} classified={classified} />
+          <Classified key={i} classified={classified} postToggle={postToggle}/>
         ))}
         </Row>
     </div>
