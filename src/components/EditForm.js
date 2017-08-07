@@ -1,13 +1,13 @@
 import React from 'react';
 
-class Form extends React.Component {
+class EditForm extends React.Component {
   constructor(props) {
     super(props)
     this.newTitle = this.newTitle.bind(this);
     this.newDescription = this.newDescription.bind(this);
     this.newPrice = this.newPrice.bind(this);
     this.newItemImage = this.newItemImage.bind(this);
-    this.newClassified = this.newClassified.bind(this);
+    this.updateClassified = this.updateClassified.bind(this);
   }
 
   newTitle(event) {
@@ -26,31 +26,20 @@ class Form extends React.Component {
     this.props.newItemImage(event.target.value)
   }
 
-  newClassified(event) {
-    console.log("connected");
+  updateClassified(event) {
     event.preventDefault()
-    this.props.toggle()
-    this.props.createClassified({
+    this.props.updateClassified({
       title: this.props.title,
       description: this.props.description,
       price:this.props.price,
-      item_image:this.props.itemImage})
+      item_image:this.props.itemImage},this.props.classified)
   }
 
   render() {
-    const { postToggle, } = this.props;
+    const { classified } = this.props;
     return (
-      <div>
-        { postToggle?
         <form
           className="form-horizontal well">
-          <div
-            className="form-group">
-            <div
-              className="col-sm-8 col-sm-offset-2">
-              <h4>Post Classified</h4>
-            </div>
-          </div>
           <div
             className="form-group">
             <label
@@ -64,7 +53,7 @@ class Form extends React.Component {
                 type="text"
                 className="form-control"
                 id="title"
-                placeholder="Enter a title"
+                placeholder={classified.title}
                 name="title"
                 onChange={ this.newTitle }/>
             </div>
@@ -82,6 +71,7 @@ class Form extends React.Component {
                 name="description"
                 id="description"
                 className="form-control"
+                placeholder={classified.description}
                 onChange={ this.newDescription }>
               </textarea>
             </div>
@@ -99,7 +89,7 @@ class Form extends React.Component {
                 type="number"
                 className="form-control"
                 id="price"
-                placeholder="Enter a price"
+                placeholder={classified.price}
                 name="price"
                 onChange={ this.newPrice }/>
             </div>
@@ -117,7 +107,7 @@ class Form extends React.Component {
                 type="text"
                 className="form-control"
                 id="item_image"
-                placeholder="Enter a image url"
+                placeholder={classified.item_image}
                 name="item_image"
                 onChange={ this.newItemImage }/>
             </div>
@@ -128,15 +118,14 @@ class Form extends React.Component {
               className="col-sm-8 col-sm-offset-2">
               <input
                 type="submit"
-                value="Send"
+                placeholder="Update"
                 className="btn btn-primary"
-                onClick={ this.newClassified }/>
+                onClick={ this.updateClassified }/>
             </div>
           </div>
-        </form>:null}
-      </div>
+        </form>
     )
   }
 }
 
-export default Form
+export default EditForm

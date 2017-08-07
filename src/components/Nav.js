@@ -8,7 +8,7 @@ const Nav = ({ postToggle }) => {
         <div className="row">
           <div className="col s12 m4">
             <button
-              className="brand-logo left" onClick={()=>postToggle()}>POST</button>
+              className="post-button left" onClick={()=>postToggle()}>POST</button>
           </div>
           <div className="col s12 m4">
             <a href="/" className="brand-logo left">g[Classifieds]</a>

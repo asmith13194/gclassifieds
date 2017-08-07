@@ -4,25 +4,29 @@ import { Row } from 'react-materialize';
 
 class Classifieds extends Component {
 
-  // state = {
-  //     ads: []
-  //   }
-  //
-  //   async componentDidMount() {
-  //     const response = await fetch('http://localhost:8000/classifieds')
-  //     const json = await response.json()
-  //     this.setState({ads: json})
-  //     console.log(this.state);
-  //   }
-
   render() {
-    const { classifieds, postToggle } = this.props;
+    const { classifieds, postToggle, delClassified, toggleEdit, updateClassified, title, description, price, itemImage, newTitle,newDescription, newPrice, newItemImage } = this.props;
 
     return (
       <div className="classifieds-container" id="classifieds-container">
         <Row>
         {classifieds.map((classified,i) => (
-          <Classified key={i} classified={classified} postToggle={postToggle}/>
+          <Classified
+            key={classified.id}
+            classified={classified}
+            postToggle={postToggle}
+            delClassified={delClassified}
+            toggleEdit={toggleEdit}
+            updateClassified={updateClassified}
+            classifieds={classifieds}
+            title={title}
+            description={description}
+            price={price}
+            itemImage={itemImage}
+            newTitle={newTitle}
+            newDescription={newDescription}
+            newPrice={newPrice}
+            newItemImage={newItemImage}/>
         ))}
         </Row>
     </div>
