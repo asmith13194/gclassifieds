@@ -17,19 +17,19 @@ class App extends Component {
     }
 
   async componentDidMount() {
-    const response = await fetch('http://localhost:8000/classifieds')
+    const response = await fetch('http://atombomb-classifeds/classifieds')
     const json = await response.json()
     this.setState({classifieds: json})
   }
 
   getAllClassifieds = async () => {
-    const response = await fetch('http://localhost:8000/classifieds')
+    const response = await fetch('http://atombomb-classifeds/classifieds')
     const json = await response.json()
     this.setState({classifieds: json})
   }
 
   createClassified = async (newClassified) => {
-    const response = await fetch('http://localhost:8000/classifieds', {
+    const response = await fetch('http://atombomb-classifeds/classifieds', {
       method: 'POST',
       body: JSON.stringify(newClassified),
       headers: {
@@ -63,7 +63,7 @@ class App extends Component {
     }else{
       bigboi.itemImage=update.itemImage
     }
-    const response = await fetch(`http://localhost:8000/classifieds/${classified.id}`, {
+    const response = await fetch(`http://atombomb-classifeds/classifieds/${classified.id}`, {
       method: 'PATCH',
       body: JSON.stringify(bigboi),
       headers: {
@@ -84,7 +84,7 @@ class App extends Component {
   }
 
   delClassified = async (id) => {
-    const response = await fetch(`http://localhost:8000/classifieds/${id}`, {
+    const response = await fetch(`http://atombomb-classifeds/classifieds/${id}`, {
       method: 'DELETE'
     })
     // const result = await response.json()
