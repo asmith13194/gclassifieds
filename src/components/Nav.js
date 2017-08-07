@@ -11,7 +11,7 @@ const Nav = ({ postToggle }) => {
               className="post-button left" onClick={()=>postToggle()}>POST</button>
           </div>
           <div className="col s12 m4">
-            <a href="/" className="brand-logo left">g[Classifieds]</a>
+            <a href="/" className="brand-logo right">g[Classifieds]</a>
           </div>
         </div>
       </div>
