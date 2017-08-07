@@ -3,6 +3,38 @@ import React from 'react';
 class Form extends React.Component {
   constructor(props) {
     super(props)
+    this.newTitle = this.newTitle.bind(this);
+    this.newDescription = this.newDescription.bind(this);
+    this.newPrice = this.newPrice.bind(this);
+    this.newItemImage = this.newItemImage.bind(this);
+    this.newClassified = this.newClassified.bind(this);
+  }
+
+  newTitle(event) {
+    this.props.newTitle(event.target.value)
+  }
+
+  newDescription(event) {
+    this.props.newDescription(event.target.value)
+  }
+
+  newPrice(event) {
+    this.props.newPrice(event.target.value)
+  }
+
+  newItemImage(event) {
+    this.props.newItemImage(event.target.value)
+  }
+
+  newClassified(event) {
+    console.log("connected");
+    event.preventDefault()
+    this.props.toggle()
+    this.props.createClassified({
+      title: this.props.title,
+      description: this.props.description,
+      price:this.props.price,
+      item_image:this.props.itemImage})
   }
 
   render() {
@@ -34,7 +66,7 @@ class Form extends React.Component {
                 id="title"
                 placeholder="Enter a title"
                 name="title"
-                onChange={ this.newSubject }/>
+                onChange={ this.newTitle }/>
             </div>
           </div>
           <div
@@ -50,7 +82,7 @@ class Form extends React.Component {
                 name="description"
                 id="description"
                 className="form-control"
-                onChange={ this.newBody }>
+                onChange={ this.newDescription }>
               </textarea>
             </div>
           </div>
@@ -69,7 +101,7 @@ class Form extends React.Component {
                 id="price"
                 placeholder="Enter a price"
                 name="price"
-                onChange={ this.newSubject }/>
+                onChange={ this.newPrice }/>
             </div>
           </div>
           <div
@@ -87,7 +119,7 @@ class Form extends React.Component {
                 id="item_image"
                 placeholder="Enter a image url"
                 name="item_image"
-                onChange={ this.newSubject }/>
+                onChange={ this.newItemImage }/>
             </div>
           </div>
           <div
@@ -98,11 +130,7 @@ class Form extends React.Component {
                 type="submit"
                 value="Send"
                 className="btn btn-primary"
-                onClick={ ()=>createClassified({
-                  title: 'Pikachu 9" Plush Stuffed Toy',
-                  description: 'world',
-                  price:10,
-                  item_image:'https://images-na.ssl-images-amazon.com/images/I/41VwGotRZsL._SY300_.jpg'}) }/>
+                onClick={ this.newClassified }/>
             </div>
           </div>
         </form>:null}

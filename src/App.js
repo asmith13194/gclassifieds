@@ -9,17 +9,20 @@ class App extends Component {
 
   state = {
       classifieds: [],
-      postToggle: false
+      postToggle: false,
+      title: '',
+      description: '',
+      price: 0,
+      itemImage: ''
     }
 
   async componentDidMount() {
     const response = await fetch('http://localhost:8000/classifieds')
     const json = await response.json()
     this.setState({classifieds: json})
-    console.log(this.state);
   }
 
-  async createClassified(newClassified) {
+  createClassified = async (newClassified) => {
     const response = await fetch('http://localhost:8000/classifieds', {
       method: 'POST',
       body: JSON.stringify(newClassified),
@@ -37,6 +40,26 @@ class App extends Component {
     this.setState({postToggle:toggle})
   }
 
+  newTitle = (value) => {
+    console.log(value);
+    this.setState({title:value})
+  }
+
+  newDescription = (value) => {
+    console.log(value);
+    this.setState({description:value})
+  }
+
+  newPrice = (value) => {
+    console.log(value);
+    this.setState({price:value})
+  }
+
+  newItemImage = (value) => {
+    console.log(value);
+    this.setState({itemImage:value})
+  }
+
   render() {
     return (
       <div className="App">
@@ -46,8 +69,18 @@ class App extends Component {
           postToggle={this.state.postToggle}
           classifieds={this.state.classifieds}/>
         <Form
+          classifieds={this.state.classifieds}
+          toggle={this.postToggle}
           postToggle={this.state.postToggle}
-          createClassified={this.createClassified}/>
+          createClassified={this.createClassified}
+          title={this.state.title}
+          description={this.state.description}
+          price={this.state.price}
+          itemImage={this.state.itemImage}
+          newTitle={this.newTitle}
+          newDescription={this.newDescription}
+          newPrice={this.newPrice}
+          newItemImage={this.newItemImage}/>
       </div>
     );
   }
