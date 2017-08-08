@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardTitle, Col, } from 'react-materialize';
+import { Card, CardTitle, Col, Button } from 'react-materialize';
 import EditForm from './EditForm.js';
 
 class Classified extends React.Component {
@@ -11,7 +11,7 @@ class Classified extends React.Component {
     const { classified, postToggle, delClassified, toggleEdit, classifieds, title, description, price, itemImage, newTitle, newDescription, newPrice, newItemImage, updateClassified } = this.props;
     return (<div>
     { postToggle?null:
-  		<Col s={12} m={4} l={4}>
+  		<Col s={12} m={6} l={4}>
         <Card
           header={
           <CardTitle
@@ -38,12 +38,12 @@ class Classified extends React.Component {
             <div>
             <p>${classified.price}</p>
             <p>{classified.description}</p>
-            <button
+            <Button
               className="edit-classified"
-              onClick={()=>toggleEdit(classified)}>EDIT</button>
-            <button
+              onClick={()=>toggleEdit(classified)}>EDIT</Button>
+            <Button
               className="del-classified"
-              onClick={()=>delClassified(classified.id)}>DELETE</button>
+              onClick={()=>delClassified(classified.id)}>DELETE</Button>
             </div>}</span>}>
           <p>${classified.price}</p>
         </Card>
