@@ -61,9 +61,15 @@ img {
 .edit-classified {
   background: #f4f4f4 !important;
   color: blue !important;
+  margin-right: 2%;
 }
 
 .del-classified {
   background: #f4f4f4 !important;
   color: blue !important;
+  margin-left: 2%;
+}
+
+.card-options:hover {
+  background: none !important;
 }

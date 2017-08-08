@@ -3,9 +3,6 @@ import { Card, CardTitle, Col, Button } from 'react-materialize';
 import EditForm from './EditForm.js';
 
 class Classified extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     const { classified, postToggle, delClassified, toggleEdit, classifieds, title, description, price, itemImage, newTitle, newDescription, newPrice, newItemImage, updateClassified } = this.props;
@@ -40,10 +37,10 @@ class Classified extends React.Component {
             <p>{classified.description}</p>
             <Button
               className="edit-classified"
-              onClick={()=>toggleEdit(classified)}>EDIT</Button>
+              onClick={()=>toggleEdit(classified)}><i className="material-icons card-options">mode_edit</i></Button>
             <Button
               className="del-classified"
-              onClick={()=>delClassified(classified.id)}>DELETE</Button>
+              onClick={()=>delClassified(classified.id)}><i className="material-icons card-options">delete_forever</i></Button>
             </div>}</span>}>
           <p>${classified.price}</p>
         </Card>
