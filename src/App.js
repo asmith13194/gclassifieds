@@ -17,7 +17,7 @@ class App extends Component {
     }
 
   async componentDidMount() {
-    const response = await fetch('http://atombomb-classifieds.herokuapp.com/classifieds/')
+    const response = await fetch('https://atombomb-classifieds.herokuapp.com/classifieds/')
     const json = await response.json()
     this.setState({classifieds: json})
   }
