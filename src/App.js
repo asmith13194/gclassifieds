@@ -17,19 +17,19 @@ class App extends Component {
     }
 
   async componentDidMount() {
-    const response = await fetch('http://localhost:8000/classifieds')
+    const response = await fetch('http://localhost:8000/classifieds/')
     const json = await response.json()
     this.setState({classifieds: json})
   }
 
   getAllClassifieds = async () => {
-    const response = await fetch('http://localhost:8000/classifieds')
+    const response = await fetch('http://localhost:8000/classifieds/')
     const json = await response.json()
     this.setState({classifieds: json})
   }
 
   createClassified = async (newClassified) => {
-    const response = await fetch('http://localhost:8000/classifieds', {
+    const response = await fetch('http://localhost:8000/classifieds/', {
       method: 'POST',
       body: JSON.stringify(newClassified),
       headers: {
@@ -97,12 +97,10 @@ class App extends Component {
   }
 
   newTitle = (value) => {
-    console.log(value);
     this.setState({title:value})
   }
 
   newDescription = (value) => {
-    console.log(value);
     this.setState({description:value})
   }
 
@@ -111,7 +109,6 @@ class App extends Component {
   }
 
   newItemImage = (value) => {
-    console.log(value);
     this.setState({itemImage:value})
   }
 

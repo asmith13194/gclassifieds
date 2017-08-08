@@ -27,7 +27,6 @@ class Form extends React.Component {
   }
 
   newClassified(event) {
-    console.log("connected");
     event.preventDefault()
     this.props.toggle()
     this.props.createClassified({

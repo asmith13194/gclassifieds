@@ -1,16 +1,19 @@
 import React from 'react';
+import { Button, } from 'react-materialize';
+
+
 
 const Nav = ({ postToggle }) => {
 
   return (
     <nav>
-      <div className="nav-wrapper amber darken-2">
+      <div className="nav-wrapper">
         <div className="row">
-          <div className="col s12 m4">
+          <div className="col s6 m6">
             <button
-              className="post-button left" onClick={()=>postToggle()}>POST</button>
+            className="brand-logo left" onClick={()=>postToggle()}>POST</button>
           </div>
-          <div className="col s12 m4">
+          <div className="col s6 m6">
             <a href="/" className="brand-logo right">g[Classifieds]</a>
           </div>
         </div>
